@@ -36,10 +36,10 @@ if [[ ! -f ${data_dir}.zip ]]; then
     echo "downloading data....."
     rm -f ${data_dir}.zip
     data_url=http://104.131.174.95/${data_dir}.zip
-    if hash curl 2>/dev/null; then
-        curl -O $data_url
-    elif hash wget 2>/dev/null; then
+    if hash wget 2>/dev/null; then
         wget $data_url
+    elif hash curl 2>/dev/null; then
+        curl -O $data_url
     else
         echo "please download the data from $data_url"
         exit 1
